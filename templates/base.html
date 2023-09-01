@@ -3,8 +3,17 @@
 <!-- filtro defaukl ---=te manda un valor por default-->
 <!-- filtro length--=Matusculas-->
 <!-- filtro truncatechart--=Matusculas-->
+
+<!-- template padre -->
 <div>
     <h1> 
-        Bienvenido a kodemia {{ name}}
+        Bienvenidos a base html 
     </h1>
+
+    <!-- esto es un bloque dinamico para que los hijos puedan usarlos -->
+    {% block title %}
+    <h2> Esto es el titulo </h2>
+    {% endblock title %}
+
+
 </div>

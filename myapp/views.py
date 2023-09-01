@@ -16,7 +16,7 @@ def saludar(request):
 
 def saludar_nombre(request, nombre):
     context={"name":nombre} #este sirve para meterle info al template
-    template = loader.get_template("myapp/templates/base.html")
+    template = loader.get_template("templates/base.html")
     return HttpResponse(template.render(context,request))
 
 def saludando_a(request, nombre,tipo):

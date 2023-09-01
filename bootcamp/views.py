@@ -13,6 +13,6 @@ def get_koder(request):
         {'name ': 'Juan','ID': '4'},
         {'name ': 'Pepe','ID': '5'}
     ]}
-    template = loader.get_template("bootcamp/templates/koders.html")
+    template = loader.get_template("templates/koders.html")
     
     return HttpResponse(template.render(context,request))
