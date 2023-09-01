@@ -8,3 +8,10 @@
 
 {% endblock title %}
 
+{% block content %}
+    {% for koder in koders %}
+    <h2> Name:{{koder.name}} </h2>
+    <h2> ID:{{koder.ID}} </h2>
+    {% endfor %}
+
+{% endblock content %}
