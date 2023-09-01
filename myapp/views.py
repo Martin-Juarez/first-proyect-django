@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
-
+from django.template import loader
 # Create your views here.
 
 
@@ -15,7 +15,15 @@ def saludar(request):
     return HttpResponse("Saludando a koders")
 
 def saludar_nombre(request, nombre):
-    return HttpResponse(f"Hola {nombre}")
+    context={"name":nombre} #este sirve para meterle info al template
+    template = loader.get_template("myapp/templates/base.html")
+    return HttpResponse(template.render(context,request))
+
+def saludando_a(request, nombre,tipo):
+    context={"name":nombre,"type":tipo} #este sirve para meterle info al template
+    template = loader.get_template("myapp/templates/practica.html")
+    return HttpResponse(template.render(context,request))
+
 
 def hello_type(request, type):
     if type == "mentor":
