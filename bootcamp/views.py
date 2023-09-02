@@ -4,18 +4,23 @@ from django.http import HttpResponse
 
 from django.template import loader
 
-def get_koder(request):
-    context = {
-    "koders": [
-        {'name': 'Martin','ID': '1'},
-        {'name': 'Miguel','ID': '2'},
-        {'name': 'Pedro','ID': '3'},
-        {'name': 'Juan','ID': '4'},
-        {'name': 'Pepe','ID': '5'},
-    ]}
-    template = loader.get_template("templates/koders.html")
-    
-    return HttpResponse(template.render(context,request))
+from bootcamp.models import Koder # aqui se importa el modelo Koder o la database
+
+
+def list_koder(request):
+    koders = Koder.objects.all()
+
+    return HttpResponse(koders)
+
+def get_koder(request,idk):
+    koder = Koder.objects.filter(pk=idk)
+    print(koder)
+
+    return HttpResponse(f"Founder koder ---->{koder}")
+
+
+
+
 
 def list_mentors(request):
     context = {
